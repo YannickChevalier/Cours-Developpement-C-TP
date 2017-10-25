@@ -1,3 +1,4 @@
+int lire_fin_ligne ( ) ;
 
 int demande_decimal ( float * n ) ;
 
