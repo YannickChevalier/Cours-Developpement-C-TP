@@ -1,1 +1,6 @@
 solutions/**
+*
+!*.c
+!*.test
+!Makefile
+
