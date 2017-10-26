@@ -1,4 +1,4 @@
-MODULES:=entrees operations tri_entiers
+MODULES:=entrees operations
 
 
 INCLUDE_PATH:= ../include
