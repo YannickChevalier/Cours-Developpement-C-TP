@@ -1,8 +1,8 @@
 MODULES:=entrees operations
 
 
-INCLUDE_PATH:= ../include
-LIBRARY_PATH:= ../lib
+INCLUDE_PATH:= ../../include
+LIBRARY_PATH:= ../../lib
 CFLAGS:=-Wall -g -I $(INCLUDE_PATH) -L$(LIBRARY_PATH)
 
 TEST_BIN:=$(patsubst %,test_%,$(MODULES))
