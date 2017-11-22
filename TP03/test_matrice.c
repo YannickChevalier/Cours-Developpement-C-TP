@@ -22,26 +22,21 @@ int main(int argc, char *argv[]) {
     ajoute_valeur(&m1, m1->nb_lignes-1, m1->nb_cols-1, 4.3);
     test(egale_float(m1->matrice[3][3] , 4.3 ) );
 
-/*
+    printf("== TEST fonction recupere_valeur ==============\n");
+    test(egale_float(recupere_valeur(m1, 3, 3), 4.3));
+
+    printf("== TEST fonction copie_matrice ==============\n");
+    copie_matrice(m1, &m2);
+    test(egale_float(m1->matrice[3][3], m2->matrice[3][3]));
+
+    printf("== TEST fonction addition_matrice =============\n");
     matrice_t m3;
     addition_matrice(m1, m2, &m3);
-    affiche_matrice(m3);
+    test(egale_float(m1->matrice[3][3] + m2->matrice[3][3], m3->matrice[3][3]));
 
-    multiplication_matrice(m1, m2, &m3);
-    affiche_matrice(m3);
-
-    ajouter_valeur(&m1, 3, 3, 45.2);
-    copier_matrice(m1, &m2);
-    printf("aaaaaa");
-    affiche_matrice(m1);
-    affiche_matrice(m2);
+    printf("== TEST fonction multiplication_matrice ===============\n");
+    matrice_t m4;
+    test(egale_float(ultiplication_matrice(m1, m3, &m4), 36.98));
     
-
-    printf("\n\n");
-    printf("%f\n", valeur_matrice(m1, 3, 3));
-    printf("%f\n", valeur_matrice(m1, 0, 0));*/
-    //int ret = fic_lire("BE01I01_2.ppm", &ptr_buffeur);
-    //printf("%c", *ptr_buffeur);
-    //printf("%d\n", strtol(ptr_buffeur, &ptr, 10));
     return 0;
 }
