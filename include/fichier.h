@@ -1,3 +1,6 @@
+#ifndef _FICHIER_H
+#define _FICHIER_H
+
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
@@ -205,3 +208,5 @@ void fic_ecrire_bmp(const char* nom_fichier, matrice_t img) {
 
 	fic_ecrire(nom_fichier, str, taille_totale);
 }
+
+#endif

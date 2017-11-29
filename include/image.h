@@ -1,3 +1,6 @@
+#ifndef _IMAGE_H
+#define _IMAGE_H
+
 enum color_e {
     RED,
     GREEN,
@@ -28,3 +31,5 @@ int fusion_matrice(matrice_t m1, matrice_t m2, matrice_t *m3);
 void copie_masque(matrice_t *m1, matrice_t m2);
 
 void change_couleur(matrice_t m1, matrice_t *m2, unsigned char rouge, unsigned char vert, unsigned char bleu);
+
+#endif
