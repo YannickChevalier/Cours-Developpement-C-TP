@@ -125,41 +125,6 @@ int fic_ecrire(const char* nom_fichier, char* fic, int i_taille) {
 }
 
 
-void fic_ecrire_ppm(const char* nom_fichier, matrice_t img) {
-	unsigned int i, j, k;
-	char *str, *str_img;
-	unsigned int taille = 3
-		+ (unsigned int)floor(log10(abs(img->nb_cols))) + 2
-		+ (unsigned int)floor(log10(abs(img->nb_lignes))) + 2
-		+ (unsigned int)floor(log10(abs(255))) + 2
-		+ img->nb_lignes * (3 * img->nb_cols);
-	/*
-	Le fichier est de la forme:
-		P6\n
-		nb_cols nb_lignes\n
-		255\n
-		matrice\0
-	*/
-	str = malloc(taille);
-	snprintf(str, taille, "P6\n%d %d\n255\n", img->nb_cols, img->nb_lignes);
-
-	// Convertir matrice de l'image en string
-	k = 0;
-	str_img = malloc(img->nb_lignes * (3 * img->nb_cols) + 1);
-	for (i = 0; i < img->nb_lignes; i++) {
-		for (j = 0; j < img->nb_cols; j++) {
-			*(str_img+k) = img->raw[i][j][RED];
-			*(str_img+k+1) = img->raw[i][j][GREEN];
-			*(str_img+k+2) = img->raw[i][j][BLUE];
-			k += 3;
-		}
-	}
-
-	memcpy(str+15, str_img, img->nb_lignes * (3 * img->nb_cols) + 1);
-
-	fic_ecrire(nom_fichier, str, taille);
-}
-
 
 void fic_ecrire_bmp(const char* nom_fichier, matrice_t img) {
 	unsigned int i, j, k;
