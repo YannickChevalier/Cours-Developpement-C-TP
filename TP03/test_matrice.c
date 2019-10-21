@@ -18,25 +18,56 @@ int main(int argc, char *argv[]) {
 
     printf("== TEST fonction ajoute_valeur =================\n");
     ajoute_valeur(&m1, 0, 1, 2);
-    test(m1->matrice[0][1] == 2);
-    ajoute_valeur(&m1, m1->nb_lignes-1, m1->nb_cols-1, 4.3);
-    test(egale_float(m1->matrice[3][3] , 4.3 ) );
-
+    if ( m1 != NULL )
+      {
+	test(m1->matrice[0][1] == 2);
+      }
+    else
+      {
+	debug ( "matrice is NULL, implement first the function.\n" COULEUR_NORMALE ) ;
+      }
+    if ( m1 != NULL )
+      {
+	ajoute_valeur(&m1, m1->nb_lignes-1, m1->nb_cols-1, 4.3);
+	test(egale_float(m1->matrice[3][3] , 4.3 ) );
+      }
+    else
+      {
+	debug ( "matrice is NULL, implement first the function.\n" COULEUR_NORMALE ) ;
+      }
     printf("== TEST fonction recupere_valeur ==============\n");
-    test(egale_float(recupere_valeur(m1, 3, 3), 4.3));
+    test(egale_float(recupere_valeur(m1, 3, 3), 1.0f));
 
     printf("== TEST fonction copie_matrice ==============\n");
-    copie_matrice(m1, &m2);
-    test(egale_float(m1->matrice[3][3], m2->matrice[3][3]));
-
+    if ( m1 != NULL )
+      {
+	copie_matrice(m1, &m2);
+	test(egale_float(m1->matrice[3][3], m2->matrice[3][3]));
+      }
+    else
+      {
+	debug ( "matrice is NULL, implement first the function.\n" COULEUR_NORMALE ) ;
+      }
     printf("== TEST fonction addition_matrice =============\n");
     matrice_t m3;
-    addition_matrice(m1, m2, &m3);
-    test(egale_float(m1->matrice[3][3] + m2->matrice[3][3], m3->matrice[3][3]));
-
+    if ( ( m1 != NULL ) && ( m2 != NULL ) && ( m3 != NULL ) )
+      {
+	addition_matrice(m1, m2, &m3);
+	test(egale_float(m1->matrice[3][3] + m2->matrice[3][3], m3->matrice[3][3]));
+      }
+    else
+      {
+	debug ( "matrice is NULL, implement first the function.\n" COULEUR_NORMALE) ;
+      }
     printf("== TEST fonction multiplication_matrice ===============\n");
     matrice_t m4;
-    test(egale_float(ultiplication_matrice(m1, m3, &m4), 36.98));
-    
+    if ( ( m1 != NULL ) && ( m3 != NULL ) )
+      {
+	test(egale_float(multiplication_matrice(m1, m3, &m4), 36.98));
+      }
+    else
+      {
+	debug ( "matrice is NULL, implement first the function.\n" COULEUR_NORMALE ) ;
+      }
     return 0;
 }

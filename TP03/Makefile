@@ -1,4 +1,4 @@
-MODULES:=matrice
+MODULES:=matrice matrices neurones
 
 
 INCLUDE_PATH:= ../include
