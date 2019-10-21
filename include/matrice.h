@@ -1,3 +1,4 @@
+#pragma once
 struct matrice_s {
   int nb_lignes ;
   int nb_cols ;
